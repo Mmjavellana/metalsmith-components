@@ -44,20 +44,18 @@ function plugin(options){
             var source = Object.keys(tasks)[index],
                 dest = tasks[source];
 
-            glob(componentsLocation + "/" + component + "/" + source, function(er, files){
-                if(er !== null) throw er;
+            var foundFiles = glob.sync(componentsLocation + "/" + component + "/" + source);
 
-                if(files){
-                    include(dest, files);
-                }
+            if(foundFiles){
+                include(dest, foundFiles);
+            }
 
-                if(++index < Object.keys(tasks).length){
-                    executeTasks(component, tasks, index, callback);
-                }
-                else{
-                    callback.call(this);
-                }
-            })
+            if(++index < Object.keys(tasks).length){
+                executeTasks(component, tasks, index, callback);
+            }
+            else{
+                callback.call(this);
+            }
         }
 
         var processComponent = function(components, index){
