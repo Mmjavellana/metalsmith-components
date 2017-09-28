@@ -1,5 +1,11 @@
 # metalsmith-components
 
+[![npm version](https://img.shields.io/npm/v/metalsmith-components.svg)][npm-url]
+[![dependencies Status](https://david-dm.org/mmjavellana/metalsmith-components/status.svg)](https://david-dm.org/mmjavellana/metalsmith-components)
+[![npm downloads](https://img.shields.io/npm/dm/metalsmith-components.svg)][npm-url]
+[![GitHub issues](https://img.shields.io/github/issues/Mmjavellana/metalsmith-components.svg)](https://github.com/Mmjavellana/metalsmith-components/issues)
+[![npm](https://img.shields.io/npm/l/metalsmith-components.svg)](http://spdx.org/licenses/ISC.html)
+
 A [Metalsmith](http://metalsmith.io) plugin that copies bower or node installed component files matching a pattern.
 
 ## Installation
@@ -91,3 +97,5 @@ require('metalsmith')(__dirname)
 
 }
 ```
+
+[npm-url]: https://www.npmjs.com/package/metalsmith-components

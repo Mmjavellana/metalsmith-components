@@ -1,7 +1,7 @@
 {
     "name": "metalsmith-components",
     "author": "Matthew Javellana",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Metalsmith plugin that copies bower or node installed component files matching a pattern",
     "repository": {
         "type": "git",
