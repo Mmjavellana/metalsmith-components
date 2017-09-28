@@ -17,6 +17,7 @@ function plugin(options){
         var include = function(root, included) {
             var contents, file, i, len, results;
             results = [];
+            root = root.replace(/\/$/, "");
             for (i = 0, len = included.length; i < len; i++) {
                 file = included[i];
                 var stats = lstatSync(file);
