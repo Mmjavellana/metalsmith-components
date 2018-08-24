@@ -1,23 +1,29 @@
 {
-    "name": "metalsmith-components",
-    "author": "Matthew Javellana",
-    "version": "1.0.2",
-    "description": "Metalsmith plugin that copies bower or node installed component files matching a pattern",
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:Mmjavellana/metalsmith-components.git"
-    },
-    "bugs": {
-        "url": "https://github.com/Mmjavellana/metalsmith-components/issues"
-    },
-    "homepage": "https://github.com/Mmjavellana/metalsmith-components",
-    "readmeFilename": "readme.md",
-    "main": "index.js",
-    "files": [
-        "index.js"
-    ],
-    "license": "ISC",
-    "dependencies": {
-        "glob": "^7.1.2 "
-    }
+  "name": "metalsmith-components",
+  "author": "Matthew Javellana",
+  "version": "1.0.3",
+  "description": "Metalsmith plugin that copies bower or node installed component files matching a pattern",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Mmjavellana/metalsmith-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mmjavellana/metalsmith-components/issues"
+  },
+  "homepage": "https://github.com/Mmjavellana/metalsmith-components",
+  "readmeFilename": "readme.md",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.2 "
+  },
+  "devDependencies": {
+    "eslint": "^5.4.0"
+  },
+  "scripts": {
+      "pretest": "eslint --ignore-path .gitignore ."
+  }
 }

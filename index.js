@@ -1,8 +1,8 @@
-var basename            = require('path').basename
-    ,readFileSync       = require('fs').readFileSync
-    ,readdirSync        = require('fs').readdirSync
-    ,lstatSync          = require('fs').lstatSync
-    ,glob               = require('glob')
+var basename            = require("path").basename
+    ,readFileSync       = require("fs").readFileSync
+    ,readdirSync        = require("fs").readdirSync
+    ,lstatSync          = require("fs").lstatSync
+    ,glob               = require("glob")
     ,componentsLocation = "bower_components";
 
 
@@ -26,8 +26,8 @@ function plugin(options){
                     var children = readdirSync(file);
 
                     children.forEach(function(s,i){
-                        children[i] = file + "/" + s
-                    })
+                        children[i] = file + "/" + s;
+                    });
 
                     include(root + "/" + (basename(file)), children);
                 }
@@ -41,15 +41,24 @@ function plugin(options){
             return results;
         };
 
-        var executeTasks = function(component, tasks, index, callback){
-            var source = Object.keys(tasks)[index],
-                dest = tasks[source];
+        var findFiles = function(source, dest){
+            source = source.replace(/\/$/, "");
 
-            var foundFiles = glob.sync(componentsLocation + "/" + component + "/" + source);
+            var foundFiles = glob.sync(source, {nodir: true});
 
-            if(foundFiles){
+            if (foundFiles && foundFiles.length) {
                 include(dest, foundFiles);
             }
+            else if (source.indexOf("*") == -1) {
+                findFiles(source + "/*", dest);
+            }
+        };
+
+        var executeTasks = function(component, tasks, index, callback){
+            var key = Object.keys(tasks)[index],
+                source = componentsLocation + "/" + component + "/" + key;
+
+            findFiles(source, tasks[key]);
 
             if(++index < Object.keys(tasks).length){
                 executeTasks(component, tasks, index, callback);
@@ -57,7 +66,7 @@ function plugin(options){
             else{
                 callback.call(this);
             }
-        }
+        };
 
         var processComponent = function(components, index){
             var keys = Object.keys(components),
@@ -68,11 +77,11 @@ function plugin(options){
                 if(++index < keys.length){
                     processComponent(components, index);
                 }
-            })
-        }
+            });
+        };
 
         processComponent(options.components, 0);
 
         return done();
-    }
-};
+    };
+}
