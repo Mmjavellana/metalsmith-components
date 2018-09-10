@@ -1,4 +1,7 @@
 # Changelog
+## [Unreleased]
+### Fixed
+- Fixed inconsistency between documentation and actual behaviour. The documentation says `componentDirectory` but the code is looking for `componentsDirectory`. Both keys now work.
 
 ## [1.0.3] - 2018-08-27
 ### Added

@@ -10,6 +10,7 @@ module.exports = plugin;
 
 function plugin(options){
     if(options.componentsDirectory) componentsLocation = options.componentsDirectory;
+    if(options.componentDirectory) componentsLocation = options.componentDirectory;
 
     return function(files, metalsmith, done) {
         if(!options.components) return done();
