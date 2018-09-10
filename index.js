@@ -42,16 +42,16 @@ function plugin(options){
             return results;
         };
 
-        var findFiles = function(source, dest){
+        var findFiles = function(source, dest, nodir = true){
             source = source.replace(/\/$/, "");
 
-            var foundFiles = glob.sync(source, {nodir: true});
+            var foundFiles = glob.sync(source, {nodir: nodir});
 
             if (foundFiles && foundFiles.length) {
                 include(dest, foundFiles);
             }
             else if (source.indexOf("*") == -1) {
-                findFiles(source + "/*", dest);
+                findFiles(source + "/*", dest, false);
             }
         };
 
