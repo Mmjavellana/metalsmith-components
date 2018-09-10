@@ -1,5 +1,5 @@
 # Changelog
-## [Unreleased]
+## [1.0.4] - 2018-09-10
 ### Fixed
 - Fixed inconsistency between documentation and actual behaviour. The documentation says `componentDirectory` but the code is looking for `componentsDirectory`. Both keys now work.
 - Fixed issue when matching a folder pattern with no `*`. The expected behaviour is for all files and folders inside the matched folder to be copied accross while keeping the directory structure. Instead nested folders were being ignored.
